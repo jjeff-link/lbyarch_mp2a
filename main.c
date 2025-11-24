@@ -7,17 +7,22 @@
 extern void getAcc(int n, double* velocities, int* results);
 
 void printMatrix(double* matrix, int n) {
-	printf("Confirming inputs: \n");
+	printf("\nConfirming inputs: \n\n");
 	for (int i = 0; i < n; i++) {
 		printf("%.1f, %.1f, %.1f\n", matrix[i * 3], matrix[i * 3 + 1], matrix[i * 3 + 2]);
 	}
+	printf("--------------------------------\n");
 }
+
 
 double measureExecutionTime(int n, double* velocities, int* results, int iterations) {
 	LARGE_INTEGER start, end, freq;
 	QueryPerformanceFrequency(&freq);
 
 	double total_us = 0.0;
+
+	printf("Iteration\tTime (microseconds)\n");
+	printf("--------------------------------\n");
 
 	for (int i = 0; i < iterations; i++) {
 		QueryPerformanceCounter(&start);
@@ -27,13 +32,20 @@ double measureExecutionTime(int n, double* velocities, int* results, int iterati
 		QueryPerformanceCounter(&end);
 
 		double microseconds =
-			(double)(end.QuadPart - start.QuadPart) * 1000000.0 / freq.QuadPart;
+			(double)(end.QuadPart - start.QuadPart) * 1e6 / freq.QuadPart;
 
 		total_us += microseconds;
+
+		printf("%9d\t%20.3f\n", i + 1, microseconds);
 	}
 
-	return total_us / iterations;  // Average in microseconds
+	printf("--------------------------------\n");
+	double avg = total_us / iterations;
+	printf("Average Execution Time: %.10f microseconds\n", avg);
+
+	return avg;
 }
+
 
 
 int main(int argc, char* argv[]) {
@@ -86,11 +98,11 @@ int main(int argc, char* argv[]) {
 	int iterations = 30;
 	double avgTime = measureExecutionTime(n, velocities, results, iterations); //get results and execution time
 
-
+	printf("Results:\n");
 	for (int i = 0; i < n; i++) {
 		printf("%d\n", results[i]);
 	}
-	printf("Average Execution Time: %.10f microseconds\n", avgTime);
+
 	free(velocities);
 	free(results);
 
