@@ -24,4 +24,15 @@
       <Filter>Source Files</Filter>
     </CustomBuild>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Downloads\drive-download-20251124T030348Z-1-001\perf_test_10.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="..\..\..\Downloads\drive-download-20251124T030348Z-1-001\perf_test_100.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="..\..\..\Downloads\perf_test_1000.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

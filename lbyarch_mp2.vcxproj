@@ -30,6 +30,11 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Downloads\drive-download-20251124T030348Z-1-001\perf_test_10.txt" />
+    <Text Include="..\..\..\Downloads\drive-download-20251124T030348Z-1-001\perf_test_100.txt" />
+    <Text Include="..\..\..\Downloads\perf_test_1000.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

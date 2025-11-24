@@ -97,12 +97,14 @@ int main(int argc, char* argv[]) {
 
 	int iterations = 30;
 	double avgTime = measureExecutionTime(n, velocities, results, iterations); //get results and execution time
-
+	
+	//print results
 	printf("Results:\n");
 	for (int i = 0; i < n; i++) {
 		printf("%d\n", results[i]);
 	}
 
+	//free memory
 	free(velocities);
 	free(results);
 
