@@ -56,19 +56,19 @@ The measured data indicates that the algorithm exhibits **Linear Time Complexity
   * The time spent repeating the loop for each input
 
 ## Screenshot of Output
-**Confirmed Inputs**
+### Confirmed Inputs
 The log begins by confirming the Y x 3 input matrix of Initial Velocity (Vi in KM/H), Final Velocity (Vf in KM/H), and Time (T in Seconds) used for the run:
 
 For this run, Y = 10.
 
 <img width="548" height="641" alt="image" src="https://github.com/user-attachments/assets/0ae24d80-117b-4838-b13c-68d919c6320b" />
 
-**Execution Time Measurement** 
+### Execution Time Measurement
 The target function was executed 30 consecutive times within a high-resolution timer to obtain a stable execution time.
 
 <img width="616" height="806" alt="image" src="https://github.com/user-attachments/assets/40b67723-43ab-4537-9f63-8433231b8e0e" />
 
-**Correctness Verification**
+### Correctness Verification
 The final section verifies the program's output by displaying the calculated acceleration values, which are converted to integers.
 
 To **verify correctness**:
@@ -82,22 +82,23 @@ Example Calculation (Row 1)
 - Final Velocity Vf = 190.5 km/h
 - Time T = 4.4 s
 
-### 1. Convert km/h to m/s
+#### 1. Convert km/h to m/s
 v(m/s) = v(km/h) × 0.27777778
 - Vi = 108.3 × 0.27777778 = 30.083 m/s
 - Vf = 190.5 × 0.27777778 = 52.917 m/s
-### 2. Apply the acceleration formula
+#### 2. Apply the acceleration formula
 a = (Vf - Vi) / T
 a = (52.917 - 30.083) / 4.4  
 a = 22.834 / 4.4  
 a = 5.19 m/s²
-### 3. Compare With Program Output
+#### 3. Compare With Program Output
 - Program result (truncated): 5
 - Computed acceleration: 5.19 m/s²
 
 <img width="184" height="259" alt="image" src="https://github.com/user-attachments/assets/9bc1cb7c-a2e3-4212-b31e-a32a8a4e0a90" />
 
 The output confirms that the function successfully processed the input data, calculated the acceleration using the formula Acceleration = (Vf - Vi) / T (with unit conversions from KM/H to m/s), and converted the final floating-point results to the required integer format.
+
 <img width="928" height="914" alt="image" src="https://github.com/user-attachments/assets/957d7dbc-0ab5-4488-acd4-4a97064be50d" />
 
 
