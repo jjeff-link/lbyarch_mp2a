@@ -34,7 +34,7 @@ The final acceleration in $m/s^2$ is then converted to an integer (truncated).
 ## Execution Time and Analysis
 
 ### Performance Results (Average over 30 runs, measured 10 times)
-1.  **Inner Loop (Stabilization):** The C program executes the target function (either Assembly or Pure C) **30 consecutive times** within a high-resolution timing block to calculate a single, stable **Average Execution Time**.
+1.  **Inner Loop (Stabilization):** The C program executes the target function **30 consecutive times** within a high-resolution timing block to calculate a single, stable **Average Execution Time**.
 2.  **Outer Loop (Mitigation):** This entire 30-run averaging process is itself repeated **10 times** by the user. The final performance result listed below is the **Average of these 10 Average Execution Times**.
 
 | Input Size ($Y$) | Execution Time (in seconds)| 
