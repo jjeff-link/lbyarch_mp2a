@@ -31,20 +31,47 @@ $$\text{Velocity (m/s)} = \text{Velocity (KM/H)} \times \frac{1000 \text{ m/KM}}
 
 The final acceleration in $m/s^2$ is then converted to an integer (truncated).
 
-## Execution Time and Short Analysis
+## Execution Time and Analysis
 
-### Performance Results (Average over 30 runs)
+### Performance Results (Average over 30 runs, measured 10 times)
+1.  **Inner Loop (Stabilization):** The C program executes the target function (either Assembly or Pure C) **30 consecutive times** within a high-resolution timing block to calculate a single, stable **Average Execution Time**.
+2.  **Outer Loop (Mitigation):** This entire 30-run averaging process is itself repeated **10 times** by the user. The final performance result listed below is the **Average of these 10 Average Execution Times**.
 
-| Input Size ($Y$) | Execution Time           | 
-| :--------------: | :----------------------: |
-| 10               |                          |
-| 100              |                          |
-| 1000             |                          |
+| Input Size ($Y$) | Execution Time (in seconds)| 
+| :--------------: | :------------------------: |
+| 10               | 0.1133333333               |
+| 100              | 0.513                      |
+| 1000             | 1.384666667                |
+| 5000             | 6.511                      |
 
 ### Performance Analysis
+The measured data indicates that the algorithm exhibits **Linear Time Complexity**, denoted as **$O(Y)$**.
 
+**Observations**
+* The performance measurements demonstrate a clear and expected upward trend in execution time as the input size increases. Since the assembly routine processes each record in a loop without advanced optimizations, the runtime scales approximately linearly with the number of inputs (Y).
+* This indicates that the program maintains consistent per-input processing cost, confirming that the function itself has O(n) time complexity.
+* Because each loop iteration always performs the same amount of work, the total execution time increases directly with the number of inputs. The performance mainly depends on:
+  * The memory reads and writes done per element
+  * The arithmetic instructions needed to compute acceleration
+  * The time spent repeating the loop for each input
 
 ## Screenshot of Output
+**Confirmed Inputs**
+The log begins by confirming the Y x 3 input matrix of Initial Velocity (Vi in KM/H), Final Velocity (Vf in KM/H), and Time (T in Seconds) used for the run:
+
+For this run, Y = 10.
+<img width="548" height="641" alt="image" src="https://github.com/user-attachments/assets/0ae24d80-117b-4838-b13c-68d919c6320b" />
+
+**Execution Time Measurement** 
+The target function was executed 30 consecutive times within a high-resolution timer to obtain a stable execution time.
+<img width="616" height="806" alt="image" src="https://github.com/user-attachments/assets/40b67723-43ab-4537-9f63-8433231b8e0e" />
+
+**Correctness Verification**
+The final section verifies the program's output by displaying the calculated acceleration values, which are converted to integers as required.
+<img width="184" height="259" alt="image" src="https://github.com/user-attachments/assets/9bc1cb7c-a2e3-4212-b31e-a32a8a4e0a90" />
+
+The output confirms that the function successfully processed the input data, calculated the acceleration using the formula Acceleration = (Vf - Vi) / T (with unit conversions from KM/H to m/s), and converted the final floating-point results to the required integer format.
+<img width="928" height="914" alt="image" src="https://github.com/user-attachments/assets/957d7dbc-0ab5-4488-acd4-4a97064be50d" />
 
 
 ## Youtube Link
