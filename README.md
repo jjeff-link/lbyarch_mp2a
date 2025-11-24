@@ -69,7 +69,31 @@ The target function was executed 30 consecutive times within a high-resolution t
 <img width="616" height="806" alt="image" src="https://github.com/user-attachments/assets/40b67723-43ab-4537-9f63-8433231b8e0e" />
 
 **Correctness Verification**
-The final section verifies the program's output by displaying the calculated acceleration values, which are converted to integers as required.
+The final section verifies the program's output by displaying the calculated acceleration values, which are converted to integers.
+
+To **verify correctness**:
+* Manually recompute accelerations from raw data.
+* Compare expected truncated values to program output.
+* If mismatch is found, test intermediate values (converted m/s and raw acceleration) to locate the problem.
+
+Example Calculation (Row 1)
+**Given:**
+- Initial Velocity Vi = 108.3 km/h
+- Final Velocity Vf = 190.5 km/h
+- Time T = 4.4 s
+
+### 1. Convert km/h to m/s
+v(m/s) = v(km/h) × 0.27777778
+- Vi = 108.3 × 0.27777778 = 30.083 m/s
+- Vf = 190.5 × 0.27777778 = 52.917 m/s
+### 2. Apply the acceleration formula
+a = (Vf - Vi) / T
+a = (52.917 - 30.083) / 4.4  
+a = 22.834 / 4.4  
+a = 5.19 m/s²
+### 3. Compare With Program Output
+- Program result (truncated): 5
+- Computed acceleration: 5.19 m/s²
 
 <img width="184" height="259" alt="image" src="https://github.com/user-attachments/assets/9bc1cb7c-a2e3-4212-b31e-a32a8a4e0a90" />
 
